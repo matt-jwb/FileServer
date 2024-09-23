@@ -1,0 +1,46 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Roslyn cache directories
+.vscode/
+.vscode-test/
+
+# Auto-generated UI debug symbols
+TestResults/
+*.csproj.nuget.dgspec.json
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
+
+# Packages
+*.nuget/
+*.nupkg
+
+# Logs and database files
+*.log
+*.sql
+
+# IDE-specific
+.idea/
+.vscode/
+.vs/
+
+# Rider-specific
+.idea/
+*.sln.iml
