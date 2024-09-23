@@ -39,8 +39,8 @@ namespace FileServer
             Directory.CreateDirectory(@"C:\MattFileSystem\ServerStorage");
 
             //Listens for tcp connections
-            Console.WriteLine($"Listening for TCP connection requests on {tcpListener.LocalEndpoint}:{port}");
             tcpListener.Start();
+            Console.WriteLine($"Listening for TCP connection requests on {GetIPAddress()}:{port}");
             while (true)
             {
                 Socket socket = tcpListener.AcceptSocket();
@@ -53,6 +53,22 @@ namespace FileServer
         public void Stop()
         {
             tcpListener.Stop();
+        }
+
+        private static string GetIPAddress()
+        {
+            string hostName = Dns.GetHostName();
+            IPHostEntry hostEntry = Dns.GetHostEntry(hostName);
+
+            foreach (var ip in hostEntry.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork && !ip.ToString().StartsWith("127."))
+                {
+                    return ip.ToString();
+                }
+            }
+
+            return "0.0.0.0";
         }
     }
 }
